@@ -31,25 +31,31 @@ You can and should cross-reference sections and sub-sections. For instance, @sec
 
 # Data {#sec-data}
 
-Our data is of penguins (@fig-bills).
+Taylor swift (@fig-taylor).
 
 ```{r}
-#| label: fig-bills
-#| fig-cap: Bills of penguins
+#| label: tbl-bills
+#| tbl-cap: taylor swift
 #| echo: false
 
-ggplot(penguins, aes(x = island, fill = species)) +
-  geom_bar(alpha = 0.8) +
-  scale_fill_manual(values = c("darkorange","purple","cyan4"),
-                    guide = "none") +
-  theme_minimal() +
-  facet_wrap(~species, ncol = 1) +
-  coord_flip()
+talyor_swift <- readRDS(here::here("inputs/talyorswift.rds"))
+
+talyor_swift |>
+  group_by(album_name)|>
+  summarise(mean_danceability = mean (danceability))|>
+  knitr::kable(
+    col.name = c(
+      "Album",
+      "Average danceability"
+    )
+  )
+
+
 ```
 
 Talk more about it.
 
-Also bills and their average (@fig-billssssss). (You can change the height and width, but don't worry about doing that until you have finished every other aspect of the paper - Quarto will try to make it look nice and the defaults usually work.)
+Also bills and their average (@fig-taylor). (You can change the height and width, but don't worry about doing that until you have finished every other aspect of the paper - Quarto will try to make it look nice and the defaults usually work.)
 
 ```{r}
 #| label: fig-billssssss
