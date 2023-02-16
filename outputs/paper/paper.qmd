@@ -47,7 +47,8 @@ talyor_swift |>
     col.name = c(
       "Album",
       "Average danceability"
-    )
+    ),
+    digtals = 3
   )
 
 
